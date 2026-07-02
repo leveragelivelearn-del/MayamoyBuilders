@@ -121,13 +121,13 @@ export async function retrieveRelevantContext(
     const mergedResults = allResultsGroups.flat();
 
     // 2. Format outputs into a context string for the LLM
-    let contextString = "Here is the relevant real-time data from Rimon Ayurbedic's database:\n\n";
+    let contextString = "Here is the relevant real-time data from Mayamoy Builders's database:\n\n";
 
     // Direct lookup for Order Tracking
     // Match phone numbers or 5+ digit numeric strings (order shortIds)
     const phoneMatch = query.match(/(?:01[3-9]\d{8})|(?:\+8801[3-9]\d{8})/);
     const orderIdMatch = query.match(/\b\d{5,8}\b/);
-    
+
     let directOrderContext = "";
     if (orderIdMatch && userId) {
       const matchedOrder = await Order.findOne({ shortId: orderIdMatch[0], user: userId }).lean().exec();

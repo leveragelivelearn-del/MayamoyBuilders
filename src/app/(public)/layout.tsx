@@ -11,7 +11,7 @@ import { auth } from '@/auth';
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   const isSuperAdmin = (session?.user as any)?.role === 'super_admin';
-  
+
   let settings = null;
   try {
     settings = await getCachedSettings();
@@ -23,11 +23,11 @@ export default async function PublicLayout({ children }: { children: React.React
   const sub = settings?.saasSubscription;
   // If sub is missing, default to not expired (allow access by default)
   const isExpired = sub ? (sub.status !== 'Active' || (sub.expiryDate && new Date(sub.expiryDate).getTime() < new Date().getTime())) : false;
-  
+
   // Only show blocker if expired and NOT a super admin
   const showBlocker = isExpired && !isSuperAdmin;
 
-  const marqueeText = settings?.marqueeText || 'Welcome to Rimon Ayurbedic! Free shipping on orders over $500.';
+  const marqueeText = settings?.marqueeText || 'Welcome to Mayamoy Builders! Free shipping on orders over $500.';
   const ui = {
     layout: settings?.uiTemplates?.layout || 'v1',
     navbar: settings?.uiTemplates?.navbar || 'v1',
@@ -36,7 +36,7 @@ export default async function PublicLayout({ children }: { children: React.React
 
   return (
     <>
-      {showBlocker && <SubscriptionBlocker brandName={settings?.brandName || 'Rimon Ayurbedic'} />}
+      {showBlocker && <SubscriptionBlocker brandName={settings?.brandName || 'Mayamoy Builders'} />}
       {ui.layout !== 'v2' && <Marquee marqueeText={marqueeText} />}
       <Navbar style={ui.navbar} />
       <main className="flex-1 pb-16 md:pb-0">{children}</main>

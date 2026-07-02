@@ -1,5 +1,5 @@
 export const productTitles = [
-  "Rimon Ayurbedic Wellness Pro",
+  "Mayamoy Builders Wellness Pro",
   "Urban Velocity Sneakers",
   "CloudWalk Elite Performance",
   "Stealth Neo-Classic Lows",

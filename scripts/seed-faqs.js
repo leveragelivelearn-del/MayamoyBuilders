@@ -15,7 +15,7 @@ if (fs.existsSync(envPath)) {
 }
 
 if (!mongodbUri) {
-  mongodbUri = 'mongodb+srv://RimonAyurbedic:xI2QuBaFZsYQ5vRD@cluster0.e5n1hnl.mongodb.net/RimonAyurbedic';
+  mongodbUri = 'mongodb+srv://mayamoybuilders:xI2QuBaFZsYQ5vRD@cluster0.e5n1hnl.mongodb.net/mayamoybuilders';
 }
 
 console.log('Connecting to MongoDB...');
@@ -34,32 +34,32 @@ const FAQ = mongoose.models.FAQ || mongoose.model('FAQ', FAQSchema);
 
 const faqs = [
   {
-    question: 'Are your Ayurvedic medicines 100% natural and safe?',
-    answer: 'Yes, all our Ayurvedic products and herbal remedies are sourced from certified manufacturers, prepared using 100% natural ingredients, and free from harmful chemicals. However, we recommend consulting a physician for specific health conditions.',
+    question: 'মায়াময় বিল্ডার্স মূলত কী ধরণের পণ্য বিক্রি করে?',
+    answer: 'মায়াময় বিল্ডার্স থাই অ্যালুমিনিয়াম হার্ডওয়্যার, এস.এস ফিটিংস হার্ডওয়্যার, কবজা, হ্যান্ডেল, ফার্নিচার হার্ডওয়্যার, স্ক্রু, রয়েল প্লাগ, দেশি-বিদেশি পর্দার ক্লাম, ভিভিপি ক্লোজার, গ্লাস কাটার, মশারি নেট সহ যাবতীয় মানসম্মত হার্ডওয়্যার পণ্য পাইকারী ও খুচরা বিক্রি এবং অর্ডার সরবরাহ করে থাকে।',
     order: 1,
     isActive: true,
   },
   {
-    question: 'Do I need a prescription to buy medicines from Rimon Ayurbedic?',
-    answer: 'Most of our natural supplements, general wellness tonics, and herbal products do not require a prescription. However, for specialized classical Ayurvedic formulations, we suggest consulting a registered Ayurvedic practitioner.',
+    question: 'আমি কি ঢাকা বা ঢাকার বাইরে থেকে প্রোডাক্ট অর্ডার করতে পারব?',
+    answer: 'হ্যাঁ, আপনি সারা বাংলাদেশ থেকেই অনলাইনে বা ফোনের মাধ্যমে অর্ডার করতে পারবেন। আমাদের কাস্টমার সার্ভিস ও হোম ডেলিভারি সার্ভিসের মাধ্যমে আমরা দেশের প্রতিটি প্রান্তে নিরাপদভাবে প্রোডাক্ট পৌঁছে দিয়ে থাকি।',
     order: 2,
     isActive: true,
   },
   {
-    question: 'How should I store the herbal products and liquid tonics?',
-    answer: 'We recommend storing all Ayurvedic medicines, tablets, and liquid arishtas in a cool, dry place away from direct sunlight. Always keep the container tightly closed after use.',
+    question: 'ঢাকার ভেতরে এবং বাইরে ডেলিভারি পেতে কতদিন সময় লাগবে?',
+    answer: 'সাধারণত ঢাকার ভেতরে ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি সম্পন্ন হয়। ঢাকার বাইরে কুরিয়ার সার্ভিসের মাধ্যমে ডেলিভারি পেতে ৩ থেকে ৫ কার্যদিবস সময় লাগতে পারে।',
     order: 3,
     isActive: true,
   },
   {
-    question: 'Do you deliver all over Bangladesh, and what are the charges?',
-    answer: 'Yes, we deliver nationwide. Inside Dhaka, delivery takes 24 to 48 hours, and outside Dhaka, it takes 3 to 5 business days. Delivery charges are ৳60 inside Dhaka and ৳120 outside Dhaka, with free delivery on orders above ৳1000.',
+    question: 'আপনাদের দোকানে কি সরাসরি এসে প্রোডাক্ট কেনা যাবে?',
+    answer: 'হ্যাঁ, আপনি সরাসরি আমাদের দোকানে এসে পণ্য দেখতে ও কিনতে পারেন। আমাদের ঠিকানা: ৭/৮ নবাবপুর রোড, আনোয়ার টাওয়ার, দোকান নং ২৪, ঢাকা ১১০০।',
     order: 4,
     isActive: true,
   },
   {
-    question: 'What is your return policy for Ayurvedic medicines?',
-    answer: 'We offer a 7-day easy return policy for all sealed and unused products in their original packaging. For safety and hygiene reasons, opened or used medicines and liquid tonics cannot be returned.',
+    question: 'আপনারা কি পাইকারী অর্ডার ও বিশেষ কোনো ছাড় দিয়ে থাকেন?',
+    answer: 'হ্যাঁ, আমরা পাইকারী বিক্রেতা এবং বড় অর্ডারের জন্য বিশেষ ডিসকাউন্ট প্রদান করি। যেকোনো বড় প্রজেক্ট বা পাইকারী ক্রয়ের জন্য আমাদের দেওয়া কন্টাক্ট নাম্বারে সরাসরি যোগাযোগ করতে পারেন।',
     order: 5,
     isActive: true,
   }
@@ -71,7 +71,7 @@ async function seed() {
       await mongoose.connect(mongodbUri);
     } catch (connErr) {
       console.log('SRV connection failed, trying direct connection fallback...');
-      const directUri = 'mongodb://RimonAyurbedic:xI2QuBaFZsYQ5vRD@ac-jrowhop-shard-00-00.e5n1hnl.mongodb.net:27017,ac-jrowhop-shard-00-01.e5n1hnl.mongodb.net:27017,ac-jrowhop-shard-00-02.e5n1hnl.mongodb.net:27017/RimonAyurbedic?ssl=true&authSource=admin';
+      const directUri = 'mongodb://mayamoybuilders:xI2QuBaFZsYQ5vRD@ac-jrowhop-shard-00-00.e5n1hnl.mongodb.net:27017,ac-jrowhop-shard-00-01.e5n1hnl.mongodb.net:27017,ac-jrowhop-shard-00-02.e5n1hnl.mongodb.net:27017/mayamoybuilders?ssl=true&authSource=admin';
       await mongoose.connect(directUri);
     }
     console.log('Connected to MongoDB successfully.');
@@ -84,7 +84,7 @@ async function seed() {
     const insertResult = await FAQ.insertMany(faqs);
     console.log(`Seeded ${insertResult.length} FAQs successfully:`);
     insertResult.forEach((f, i) => {
-      console.log(`[FAQ ${i+1}] Question: "${f.question}"`);
+      console.log(`[FAQ ${i + 1}] Question: "${f.question}"`);
     });
 
   } catch (error) {

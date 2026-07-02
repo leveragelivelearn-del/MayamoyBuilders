@@ -6,8 +6,8 @@ import GlobalSettings from '@/models/GlobalSettings';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'About Us | Rimon Ayurbedic',
-  description: 'Rimon Ayurbedic - The trusted name for 100% pure and natural ayurvedic herbal products. Learn about our mission, vision, and values.',
+  title: 'About Us | Mayamoy Builders',
+  description: 'Mayamoy Builders - The trusted name for 100% pure and natural ayurvedic herbal products. Learn about our mission, vision, and values.',
 };
 
 async function getSettings() {
@@ -16,7 +16,7 @@ async function getSettings() {
     const settings = await GlobalSettings.findOne().lean();
     if (!settings) {
       return {
-        brandName: "Rimon Ayurbedic",
+        brandName: "Mayamoy Builders",
         contact: {
           email: "support@rimonherbal.com",
           phone: "+8801234567890",
@@ -33,7 +33,7 @@ async function getSettings() {
 
 export default async function AboutPage() {
   const settings = await getSettings();
-  const brandName = settings?.brandName || "Rimon Ayurbedic";
+  const brandName = settings?.brandName || "Mayamoy Builders";
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -118,10 +118,10 @@ export default async function AboutPage() {
             <div className="relative aspect-square md:aspect-video lg:aspect-square max-w-md mx-auto w-full rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primary-foreground/30 p-1 shadow-2xl">
               <div className="w-full h-full bg-slate-900 rounded-[22px] overflow-hidden relative flex flex-col justify-end p-8 text-white">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10" />
-                
+
                 {/* Embedded dynamic design background */}
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_10%,transparent_10.1%)] bg-[length:20px_20px]" />
-                
+
                 <div className="relative z-20 space-y-3">
                   <span className="text-[10px] uppercase tracking-widest font-bold text-primary px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md self-start inline-block">
                     Our Slogan
@@ -195,27 +195,27 @@ export default async function AboutPage() {
           </h3>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
             This state-of-the-art e-commerce storefront is proudly designed, developed, and maintained by Jia Pixel, the{' '}
-            <a 
-              href="https://www.jiapixel.com" 
-              target="_blank" 
+            <a
+              href="https://www.jiapixel.com"
+              target="_blank"
               rel="noopener"
               className="text-primary font-semibold hover:underline transition-all"
             >
               Leading Digital Agency In Bangladesh
             </a>
             . Our team specializes in engineering high-performance, high-conversion web solutions with flawless user experiences. From crafting custom{' '}
-            <a 
-              href="https://www.jiapixel.com/projects/web-design-for-healthcare-to-build-trust-and-authority" 
-              target="_blank" 
+            <a
+              href="https://www.jiapixel.com/projects/web-design-for-healthcare-to-build-trust-and-authority"
+              target="_blank"
               rel="noopener"
               className="text-primary font-semibold hover:underline transition-all"
             >
               Web Design for Healthcare
             </a>{' '}
             to developing robust systems like{' '}
-            <a 
-              href="https://www.jiapixel.com/projects/hospital-web-design-for-modern-healthcare" 
-              target="_blank" 
+            <a
+              href="https://www.jiapixel.com/projects/hospital-web-design-for-modern-healthcare"
+              target="_blank"
               rel="noopener"
               className="text-primary font-semibold hover:underline transition-all"
             >

@@ -48,11 +48,11 @@ export async function generateMetadata(): Promise<Metadata> {
     getCachedBanners()
   ]);
 
-  const brandName = settings?.brandName || 'Rimon Ayurbedic';
+  const brandName = settings?.brandName || 'Mayamoy Builders';
   const metaTitle = settings?.metaTitle || brandName;
   const description = settings?.metaDescription || settings?.siteDescription || 'Your ultimate destination for quality products.';
   const ogImage = banners?.[0]?.image || settings?.logoUrl || '';
-  
+
   const headersList = await headers();
   const hostname = headersList.get('host') || 'localhost';
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';

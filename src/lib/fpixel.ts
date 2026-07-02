@@ -61,26 +61,20 @@ export const fbEvent = (
 ) => {
   const eventId = providedEventId || generateEventId();
 
-  // Map restricted standard events to custom event names to bypass Meta domain-level blocks
-  const EVENT_BYPASS_MAP: Record<string, string> = {
-    'Purchase': 'OrderPlaced',
-    'AddToCart': 'ProductAdded',
-    'InitiateCheckout': 'CheckoutStart'
-  };
-
-  const finalEventName = EVENT_BYPASS_MAP[eventName] || eventName;
-
+  const finalEventName = eventName;
+  
   // 1. Browser Pixel Tracking
   if (typeof window !== "undefined" && window.fbq) {
     const standardEvents = [
       "AddPaymentInfo", "CompleteRegistration",
       "Contact", "CustomizeProduct", "Donate", "FindLocation",
       "Lead", "Schedule",
-      "Search", "StartTrial", "SubmitApplication", "Subscribe", "ViewContent", "PageView"
+      "Search", "StartTrial", "SubmitApplication", "Subscribe", "ViewContent", "PageView",
+      "Purchase", "AddToCart", "InitiateCheckout", "AddToWishlist"
     ];
 
-    // If it's one of our mapped custom events, or not a standard event, track as Custom
-    if (EVENT_BYPASS_MAP[eventName] || !standardEvents.includes(finalEventName)) {
+    // If it's not a standard event, track as Custom
+    if (!standardEvents.includes(finalEventName)) {
       window.fbq("trackCustom", finalEventName, customData, { eventID: eventId });
     } else {
       window.fbq("track", finalEventName, customData, { eventID: eventId });
